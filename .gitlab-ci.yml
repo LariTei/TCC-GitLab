@@ -3,5 +3,9 @@ stages:
   - test
   - deploy
 
-automação:
+automação_build:
   stage: build
+  script:
+    - node --version
+    - npm --version
+    - echo "instalando node"
