@@ -4,8 +4,11 @@ stages:
   - deploy
 
 automação_build:
+  image: alpine
   stage: build
   script:
+    - node --version
+    - npm --version
     - echo "Building"
     - mkdir build
     - touch build/info.txt
