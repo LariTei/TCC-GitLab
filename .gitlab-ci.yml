@@ -6,5 +6,6 @@ stages:
 automação_build:
   stage: build
   script:
-    - npm --version
-    - echo "instalando node"
+    - echo "Building"
+    - mkdir build
+    - touch build/info.txt
