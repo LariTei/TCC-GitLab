@@ -6,6 +6,5 @@ stages:
 automação_build:
   stage: build
   script:
-    - node --version
     - npm --version
     - echo "instalando node"
