@@ -1,7 +1,25 @@
 stages:
   - build
+  - linter
   - test
   - deploy
+
+# Etapa 1: Validação estática de sintaxe e boas práticas
+django_linter:
+  stage: linter
+  image: python:3.11-slim
+  script:
+    - pip install django
+    - python manage.py check
+
+ # Etapa 2: Simulação de montagem do Banco de Dados simulando o ambiente produtivo
+django_migrations_test:
+  stage: test
+  image: python:3.11-slim
+  script:
+     - pip install -r requirements.txt
+     - python manage.py makemigrations --check --dry-run
+     - python manage.py migrate --noinput
 
 automação_build:
   image: alpine
@@ -10,3 +28,12 @@ automação_build:
     - echo "Building"
     - mkdir build
     - touch build/info.txt
+
+teste:
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.49.1-noble
+  variables:
+    APP_BASE_URL: 'http://127.0.0.1:8000/admin'
+  script:
+    - npm ci
+    - npm run test
