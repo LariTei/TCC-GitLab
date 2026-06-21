@@ -1,0 +1,12 @@
+# Framework Web Principal
+Django>=5.0,<6.0
+
+# Ferramentas Auxiliares e Segurança de Variáveis
+django-environ>=0.11.0
+
+# Extensão para facilitar formulários elegantes com Bootstrap (opcional, mas recomendado)
+django-crispy-forms>=2.1
+crispy-bootstrap5>=2024.2
+
+# Conector de Banco de Dados (Caso decida usar PostgreSQL no futuro; por padrão o Django usa SQLite nativo)
+# psycopg2-binary>=2.9.9
