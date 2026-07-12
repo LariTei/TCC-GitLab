@@ -5,7 +5,7 @@ class Motorista(models.Model):
     # O Django cria automaticamente uma Chave Primária (id) para cada modelo
     nome = models.CharField(max_length=100, verbose_name="Nome Completo")
     cpf = models.CharField(max_length=14, unique=True, verbose_name="CPF")
-    telefone = models.CharField(max_length=15, verbose_name="Telefone")
+    telefone = models.CharField(max_length=20, verbose_name="Telefone")
     endereco = models.TextField(verbose_name="Endereço")
     email = models.EmailField(unique=True, verbose_name="E-mail")
 
