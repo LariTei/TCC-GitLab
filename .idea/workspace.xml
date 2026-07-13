@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Teste Automação Java">
-      <change afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/teste.java" beforeDir="false" />
+    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Teste automação teste_mecanica.py">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_mecanica.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_mecanica.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782582227558</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Teste automação teste_mecanica.py">
+      <option name="closed" value="true" />
+      <created>1783883028325</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1783883028325</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,7 +212,8 @@
     <MESSAGE value="retirando version" />
     <MESSAGE value="Adicionando django" />
     <MESSAGE value="Teste Automação Java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Teste Automação Java" />
+    <MESSAGE value="Teste automação teste_mecanica.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teste automação teste_mecanica.py" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
