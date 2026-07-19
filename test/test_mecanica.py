@@ -23,7 +23,7 @@ class TestOficinaInterface(LiveServerTestCase):
         cls.p = cls.playwright_manager.__enter__()
 
         # Lança o navegador e cria a página compartilhada
-        cls.browser = cls.p.chromium.launch(headless=true)
+        cls.browser = cls.p.chromium.launch(headless=True)
         cls.page = cls.browser.new_page()
 
     @classmethod
