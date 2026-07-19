@@ -46,4 +46,4 @@ teste:
     # Garanta que os navegadores do Playwright estejam validados
     - playwright install chromium
   script:
-    - pytest test_mecanica.py
+    - pytest
