@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Tentando rodar o teste na pipeline" />
+    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Tentando rodar o teste na pipeline">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_mecanica.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_mecanica.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -242,7 +245,23 @@
       <option name="project" value="LOCAL" />
       <updated>1784496274897</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Tentando rodar o teste na pipeline">
+      <option name="closed" value="true" />
+      <created>1784496788250</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1784496788250</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Tentando rodar o teste na pipeline">
+      <option name="closed" value="true" />
+      <created>1784497212669</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1784497212669</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
