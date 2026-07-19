@@ -103,8 +103,8 @@ class TestOficinaInterface(LiveServerTestCase):
         self.page.wait_for_timeout(2_000)
 
         # Como o banco não sofreu rollback transacional purgado pelo pytest, o ID 1 existirá
-        self.page.wait_for_url(f"{self.live_server_url}/motoristas/editar/2/")
-        assert "/motoristas/editar/2/" in self.page.url
+        self.page.wait_for_url(f"{self.live_server_url}/motoristas/editar/1/")
+        assert "/motoristas/editar/1/" in self.page.url
         print("Sucesso! O ID 1 persistiu e a tela de edição foi aberta.")
         self.page.wait_for_timeout(1_000)
         self.page.get_by_label("Nome Completo:").fill("Teste Editando")
