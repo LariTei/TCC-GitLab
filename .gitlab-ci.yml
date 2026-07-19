@@ -35,18 +35,15 @@ teste:
   variables:
     APP_BASE_URL: 'http://127.0.0.1:8000/admin'
     DJANGO_ALLOW_ASYNC_UNSAFE: "true"
+    # Defina o PYTHONPATH aqui para ajudar o container a enxergar a raiz do projeto e a pasta src antes de invocar os testes
+    PYTHONPATH: ".:src"
   before_script:
-    # 1. Atualiza os pacotes e garante que o Python e o pip estejam instalados na imagem do Playwright
     - apt-get update && apt-get install -y python3 python3-pip python3-venv
-
-    # 2. Cria e ativa um ambiente virtual (opcional, mas recomendado para isolamento)
     - python3 -m venv .venv
     - source .venv/bin/activate
-
-    # 3. Instala as dependências do Python (Django, Pytest, plugin do Playtest, etc.)
-    # Se você tiver um arquivo requirements.txt, use: pip install -r requirements.txt
-    - pip install django pytest pytest-playwright
-
+    # Instale obrigatoriamente o pytest-django para ele respeitar o arquivo pytest.ini
+    - pip install django pytest pytest-playwright pytest-django
+    # Garanta que os navegadores do Playwright estejam validados
+    - playwright install chromium
   script:
-    # 4. Executa o arquivo de teste diretamente usando o pytest
     - pytest test_mecanica.py
