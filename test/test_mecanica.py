@@ -38,7 +38,6 @@ def page(browser):
         context.close()
     except Exception:
         pass
-
 # --- testes ---
 def test1_pagina_inicial_e_links(live_server, page):
     page.goto(live_server.url)
