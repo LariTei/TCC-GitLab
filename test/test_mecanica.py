@@ -7,6 +7,7 @@ from playwright.sync_api import sync_playwright, expect
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 # --- fixtures para Playwright ---
+# vamos ver se vai
 @pytest.fixture(scope="session")
 def playwright_manager():
     p = sync_playwright().start()
