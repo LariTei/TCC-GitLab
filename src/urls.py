@@ -1,10 +1,18 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .api_views import MotoristaViewSet, AutomovelViewSet, ConsertoViewSet
 from . import views
+
+router = DefaultRouter()
+router.register(r'motoristas', MotoristaViewSet, basename='api-motorista')
+router.register(r'automoveis', AutomovelViewSet, basename='api-automovel')
+router.register(r'consertos', ConsertoViewSet, basename='api-conserto')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('api/', include(router.urls)),
 
     # URLS Motorista
     path('motoristas/', views.lista_motoristas, name='lista_motoristas'),
@@ -23,4 +31,6 @@ urlpatterns = [
     path('consertos/novo/', views.salvar_conserto, name='criar_conserto'),
     path('consertos/editar/<int:pk>/', views.salvar_conserto, name='editar_conserto'),
     path('consertos/deletar/<int:pk>/', views.deletar_conserto, name='deletar_conserto'),
+
+    path('', views.index, name='index'),
 ]
