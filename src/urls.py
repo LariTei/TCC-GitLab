@@ -1,10 +1,20 @@
 from django.contrib import admin
-from django.urls import path
 from . import views
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .api_views import MotoristaViewSet, AutomovelViewSet, ConsertoViewSet
+
+
+# Criar e registrar o roteador da API
+router = DefaultRouter()
+router.register(r'motoristas', MotoristaViewSet, basename='motorista')
+router.register(r'automoveis', AutomovelViewSet, basename='automovel')
+router.register(r'consertos', ConsertoViewSet, basename='conserto')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('api/', include(router.urls)),
 
     # URLS Motorista
     path('motoristas/', views.lista_motoristas, name='lista_motoristas'),
