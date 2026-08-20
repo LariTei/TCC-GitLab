@@ -1,6 +1,28 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from rest_framework import viewsets
 from .models import Motorista, Automovel, Conserto
 from .forms import MotoristaForm, AutomovelForm, ConsertoForm
+from .serializers import MotoristaSerializer, AutomovelSerializer, ConsertoSerializer
+
+# ==========================================
+# 1. VIEWSETS (Para a API REST Framework)
+# ==========================================
+class MotoristaViewSet(viewsets.ModelViewSet):
+    queryset = Motorista.objects.all()
+    serializer_class = MotoristaSerializer
+
+class AutomovelViewSet(viewsets.ModelViewSet):
+    queryset = Automovel.objects.all()
+    serializer_class = AutomovelSerializer
+
+class ConsertoViewSet(viewsets.ModelViewSet):
+    queryset = Conserto.objects.all()
+    serializer_class = ConsertoSerializer
+
+
+# ==========================================
+# 2. VIEWS TRADICIONAIS (Para as páginas HTML)
+# ==========================================
 
 # Página Inicial (Menu com Ícones Linkáveis)
 def index(request):
