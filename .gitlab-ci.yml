@@ -42,7 +42,7 @@ teste:
     - python3 -m venv .venv
     - source .venv/bin/activate
     # Instale obrigatoriamente o pytest-django para ele respeitar o arquivo pytest.ini
-    - pip install django pytest pytest-playwright pytest-django whitenoise
+    - pip install -r requirements.txt
     # Garanta que os navegadores do Playwright estejam validados
     - playwright install chromium
   script:
