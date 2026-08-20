@@ -1,8 +1,7 @@
 from django.contrib import admin
-from . import views
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .api_views import MotoristaViewSet, AutomovelViewSet, ConsertoViewSet
+from . import api_views
 
 
 # Criar e registrar o roteador da API
