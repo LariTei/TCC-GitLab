@@ -45,6 +45,6 @@ teste:
     # Instale obrigatoriamente o pytest-django para ele respeitar o arquivo pytest.ini
     - pip install -r requirements.txt
     # Garanta que os navegadores do Playwright estejam validados
-    - playwright install chromium
+    - playwright install chromium --with-deps
   script:
     - pytest
