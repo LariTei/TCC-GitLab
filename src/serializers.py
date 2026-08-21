@@ -13,6 +13,7 @@ class AutomovelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ConsertoSerializer(serializers.ModelSerializer):
+    valor_total = serializers.ReadOnlyField()
     class Meta:
         model = Conserto
         fields = '__all__'
