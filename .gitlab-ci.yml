@@ -12,6 +12,8 @@ django_linter:
     - python -m pip install --upgrade pip
     - pip install -r requirements.txt
   script:
+    - pip install --upgrade pip
+    - pip install django djangorestframework
     - python manage.py check
 
 # # Etapa 2: Simulação de montagem do Banco de Dados simulando o ambiente produtivo
@@ -46,6 +48,6 @@ teste:
     # Instale obrigatoriamente o pytest-django para ele respeitar o arquivo pytest.ini
     - pip install -r requirements.txt
     # Garanta que os navegadores do Playwright estejam validados
-    - playwright install chromium
+    - playwright install chromium --with-deps
   script:
     - pytest

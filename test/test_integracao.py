@@ -57,7 +57,7 @@ class TestAPIIntegracaoOficina:
         payload_conserto = {
             "automovel": auto_id,
             "problema_carro": "Troca de óleo e filtro",
-            "pecas_trocadas": "Óleo 5W30, Filtro de Óleo",
+            "pecas_a_trocar": "Óleo 5W30, Filtro de Óleo",
             "data_entrada": "2026-07-20",
             "data_saida": "2026-07-21",
             "mecanico_responsavel": "Roberto",

@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Adicione a aplicação da API REST
     'rest_framework',
     'src',  # Registra a sua pasta atual como um app do Django
 ]

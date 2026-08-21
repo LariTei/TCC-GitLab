@@ -7,16 +7,13 @@ class MotoristaSerializer(serializers.ModelSerializer):
         model = Motorista
         fields = '__all__'
 
-
 class AutomovelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Automovel
         fields = '__all__'
 
-
 class ConsertoSerializer(serializers.ModelSerializer):
-    valor_total = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
-
+    valor_total = serializers.ReadOnlyField()
     class Meta:
         model = Conserto
         fields = '__all__'

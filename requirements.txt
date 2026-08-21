@@ -19,6 +19,7 @@ pytest-django>=4.5.0
 pytest-playwright>=0.4.0
 pytest-cov>=4.1.0
 playwright>=1.49.0
+djangorestframework
 
 # Banco de Dados e Utilitários
 psycopg2-binary>=2.9.6
