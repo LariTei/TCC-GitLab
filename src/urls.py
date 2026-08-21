@@ -12,6 +12,11 @@ router.register(r'motoristas', MotoristaViewSet, basename='motorista')
 router.register(r'automoveis', AutomovelViewSet, basename='automovel')
 router.register(r'consertos', ConsertoViewSet, basename='conserto')
 
+router = DefaultRouter()
+router.register(r'motoristas', MotoristaViewSet, basename='api-motorista')
+router.register(r'automoveis', AutomovelViewSet, basename='api-automovel')
+router.register(r'consertos', ConsertoViewSet, basename='api-conserto')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', api_views.index, name='index'),
