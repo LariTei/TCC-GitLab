@@ -1,10 +1,12 @@
+image: mcr.microsoft.com/playwright/python:latest
+
 stages:
   - build
   - linter
   - test
   - deploy
 
-# Etapa 1: Validação estática de sintaxe e boas práticas
+# Lint stage (keeps existing linter job behavior)
 django_linter:
   stage: linter
   image: python:3.11-slim
@@ -16,16 +18,8 @@ django_linter:
     - pip install django djangorestframework
     - python manage.py check
 
-# # Etapa 2: Simulação de montagem do Banco de Dados simulando o ambiente produtivo
-#django_migrations_test:
-#  stage: test
-#  image: python:3.11-slim
-#  script:
-#     - pip install -r requirements.txt
-#     - python manage.py makemigrations --check --dry-run
-#     - python manage.py migrate --noinput
-
-automação_build:
+# Lightweight build job
+automacao_build:
   image: alpine
   stage: build
   script:
@@ -33,21 +27,88 @@ automação_build:
     - mkdir build
     - touch build/info.txt
 
-teste:
-  stage: test
-  image: mcr.microsoft.com/playwright:v1.49.1-noble
+# Shared before_script for test jobs (uses Playwright image to avoid browser install)
+defaults: &defaults
+  image: mcr.microsoft.com/playwright/python:latest
   variables:
-    APP_BASE_URL: 'http://127.0.0.1:8000/admin'
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+    PIPELINE_TIMEOUT: "60"
     DJANGO_ALLOW_ASYNC_UNSAFE: "true"
-    # Defina o PYTHONPATH aqui para ajudar o container a enxergar a raiz do projeto e a pasta src antes de invocar os testes
     PYTHONPATH: ".:src"
   before_script:
-    - apt-get update && apt-get install -y python3 python3-pip python3-venv
-    - python3 -m venv .venv
-    - source .venv/bin/activate
-    # Instale obrigatoriamente o pytest-django para ele respeitar o arquivo pytest.ini
+    - python -V
+    - python -m pip install --upgrade pip
     - pip install -r requirements.txt
-    # Garanta que os navegadores do Playwright estejam validados
-    - playwright install chromium --with-deps
+    - python -m playwright install chromium || true
+    - python manage.py migrate --noinput
+  cache:
+    key: "pip-cache"
+    paths:
+      - .cache/pip/
+
+# Unit / Integration tests
+unit_integration:
+  stage: test
+  <<: *defaults
   script:
-    - pytest
+    - mkdir -p reports
+    - pytest -q test/test_integracao.py --junitxml=reports/integration.xml
+  artifacts:
+    when: always
+    paths:
+      - reports/integration.xml
+    expire_in: 1 day
+    reports:
+      junit: reports/integration.xml
+
+# Functional tests (separate job for parallelism)
+functional:
+  stage: test
+  <<: *defaults
+  script:
+    - mkdir -p reports
+    - pytest -q test/test_funcional.py --junitxml=reports/functional.xml
+  artifacts:
+    when: always
+    paths:
+      - reports/functional.xml
+    expire_in: 1 day
+    reports:
+      junit: reports/functional.xml
+
+# E2E tests (separate job for parallelism)
+e2e:
+  stage: test
+  <<: *defaults
+  script:
+    - mkdir -p reports
+    - pytest -q test/test_e2e.py --junitxml=reports/e2e.xml
+  artifacts:
+    when: always
+    paths:
+      - reports/e2e.xml
+    expire_in: 1 day
+    reports:
+      junit: reports/e2e.xml
+
+# Scalability / Load tests
+scalability:
+  stage: test
+  <<: *defaults
+  script:
+    - mkdir -p reports
+    - echo "Using PIPELINE_TIMEOUT=${PIPELINE_TIMEOUT} (secs)"
+    - pytest -q test/test_escalabilidade.py --junitxml=reports/scalability.xml
+  artifacts:
+    when: always
+    paths:
+      - reports/scalability.xml
+    expire_in: 1 day
+    reports:
+      junit: reports/scalability.xml
+
+# Notes:
+# - Jobs in the same stage (test) run in parallel when runners are available.
+# - artifacts.reports.junit enables GitLab Test Reports UI for each job.
+# - Set CI runners autoscaling or multiple runners to achieve maximum parallelism.
+# - Increase PIPELINE_TIMEOUT in CI variables to allow longer E2E/scalability runs.
