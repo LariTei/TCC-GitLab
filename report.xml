@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="7" failures="0" skipped="0" tests="7" time="2.089" timestamp="2026-08-20T22:38:15.819945-03:00" hostname="DESKTOP-FN28HFV"><testcase classname="test.test_integracao.TestAPIIntegracaoOficina" name="test1_criacao_motorista_via_api_e_persistencia_no_banco" time="0.003"><error message="failed on setup with &quot;django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.&quot;">request = &lt;SubRequest 'django_db_setup' for &lt;Function test1_criacao_motorista_via_api_e_persistencia_no_banco&gt;&gt;, django_test_environment = None
+django_db_blocker = &lt;pytest_django.plugin.DjangoDbBlocker object at 0x0000023F279034D0&gt;, django_db_use_migrations = True, django_db_keepdb = True, django_db_createdb = False
+django_db_modify_db_settings = None
+
+    @pytest.fixture(scope="session")
+    def django_db_setup(
+        request: pytest.FixtureRequest,
+        django_test_environment: None,  # noqa: ARG001
+        django_db_blocker: DjangoDbBlocker,
+        django_db_use_migrations: bool,
+        django_db_keepdb: bool,
+        django_db_createdb: bool,
+        django_db_modify_db_settings: None,  # noqa: ARG001
+    ) -&gt; Generator[None, None, None]:
+        """Top level fixture to ensure test databases are available"""
+        from django.test.utils import setup_databases, teardown_databases
+    
+        setup_databases_args = {}
+    
+        if not django_db_use_migrations:
+            _disable_migrations()
+    
+        if django_db_keepdb and not django_db_createdb:
+            setup_databases_args["keepdb"] = True
+    
+        aliases, serialized_aliases = _get_databases_for_setup(request.session.items)
+    
+        with django_db_blocker.unblock():
+&gt;           db_cfg = setup_databases(
+                verbosity=request.config.option.verbose,
+                interactive=False,
+                aliases=aliases,
+                serialized_aliases=serialized_aliases,
+                **setup_databases_args,
+            )
+
+.venv\Lib\site-packages\pytest_django\fixtures.py:186: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\django\test\utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv\Lib\site-packages\django\db\backends\base\creation.py:64: in create_test_db
+    self.connection.close()
+.venv\Lib\site-packages\django\utils\asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\django\db\backends\sqlite3\base.py:223: in close
+    self.validate_thread_sharing()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;
+
+    def validate_thread_sharing(self):
+        """
+        Validate that the connection isn't accessed by another thread than the
+        one which originally created it, unless the connection was explicitly
+        authorized to be shared between threads (via the `inc_thread_sharing()`
+        method). Raise an exception if the validation fails.
+        """
+        if not (self.allow_thread_sharing or self._thread_ident == _thread.get_ident()):
+&gt;           raise DatabaseError(
+                "DatabaseWrapper objects created in a "
+                "thread can only be used in that same thread. The object "
+                "with alias '%s' was created in thread id %s and this is "
+                "thread id %s." % (self.alias, self._thread_ident, _thread.get_ident())
+            )
+E           django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.
+
+.venv\Lib\site-packages\django\db\backends\base\base.py:645: DatabaseError</error></testcase><testcase classname="test.test_integracao.TestAPIIntegracaoOficina" name="test2_integracao_relacionamento_motorista_automovel_e_conserto" time="0.001"><error message="failed on setup with &quot;django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.&quot;">request = &lt;SubRequest 'django_db_setup' for &lt;Function test1_criacao_motorista_via_api_e_persistencia_no_banco&gt;&gt;, django_test_environment = None
+django_db_blocker = &lt;pytest_django.plugin.DjangoDbBlocker object at 0x0000023F279034D0&gt;, django_db_use_migrations = True, django_db_keepdb = True, django_db_createdb = False
+django_db_modify_db_settings = None
+
+    @pytest.fixture(scope="session")
+    def django_db_setup(
+        request: pytest.FixtureRequest,
+        django_test_environment: None,  # noqa: ARG001
+        django_db_blocker: DjangoDbBlocker,
+        django_db_use_migrations: bool,
+        django_db_keepdb: bool,
+        django_db_createdb: bool,
+        django_db_modify_db_settings: None,  # noqa: ARG001
+    ) -&gt; Generator[None, None, None]:
+        """Top level fixture to ensure test databases are available"""
+        from django.test.utils import setup_databases, teardown_databases
+    
+        setup_databases_args = {}
+    
+        if not django_db_use_migrations:
+            _disable_migrations()
+    
+        if django_db_keepdb and not django_db_createdb:
+            setup_databases_args["keepdb"] = True
+    
+        aliases, serialized_aliases = _get_databases_for_setup(request.session.items)
+    
+        with django_db_blocker.unblock():
+&gt;           db_cfg = setup_databases(
+                verbosity=request.config.option.verbose,
+                interactive=False,
+                aliases=aliases,
+                serialized_aliases=serialized_aliases,
+                **setup_databases_args,
+            )
+
+.venv\Lib\site-packages\pytest_django\fixtures.py:186: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\django\test\utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv\Lib\site-packages\django\db\backends\base\creation.py:64: in create_test_db
+    self.connection.close()
+.venv\Lib\site-packages\django\utils\asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\django\db\backends\sqlite3\base.py:223: in close
+    self.validate_thread_sharing()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;
+
+    def validate_thread_sharing(self):
+        """
+        Validate that the connection isn't accessed by another thread than the
+        one which originally created it, unless the connection was explicitly
+        authorized to be shared between threads (via the `inc_thread_sharing()`
+        method). Raise an exception if the validation fails.
+        """
+        if not (self.allow_thread_sharing or self._thread_ident == _thread.get_ident()):
+&gt;           raise DatabaseError(
+                "DatabaseWrapper objects created in a "
+                "thread can only be used in that same thread. The object "
+                "with alias '%s' was created in thread id %s and this is "
+                "thread id %s." % (self.alias, self._thread_ident, _thread.get_ident())
+            )
+E           django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.
+
+.venv\Lib\site-packages\django\db\backends\base\base.py:645: DatabaseError</error></testcase><testcase classname="test.test_integracao.TestAPIIntegracaoOficina" name="test3_atualizacao_e_exclusao_via_api" time="0.001"><error message="failed on setup with &quot;django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.&quot;">request = &lt;SubRequest 'django_db_setup' for &lt;Function test1_criacao_motorista_via_api_e_persistencia_no_banco&gt;&gt;, django_test_environment = None
+django_db_blocker = &lt;pytest_django.plugin.DjangoDbBlocker object at 0x0000023F279034D0&gt;, django_db_use_migrations = True, django_db_keepdb = True, django_db_createdb = False
+django_db_modify_db_settings = None
+
+    @pytest.fixture(scope="session")
+    def django_db_setup(
+        request: pytest.FixtureRequest,
+        django_test_environment: None,  # noqa: ARG001
+        django_db_blocker: DjangoDbBlocker,
+        django_db_use_migrations: bool,
+        django_db_keepdb: bool,
+        django_db_createdb: bool,
+        django_db_modify_db_settings: None,  # noqa: ARG001
+    ) -&gt; Generator[None, None, None]:
+        """Top level fixture to ensure test databases are available"""
+        from django.test.utils import setup_databases, teardown_databases
+    
+        setup_databases_args = {}
+    
+        if not django_db_use_migrations:
+            _disable_migrations()
+    
+        if django_db_keepdb and not django_db_createdb:
+            setup_databases_args["keepdb"] = True
+    
+        aliases, serialized_aliases = _get_databases_for_setup(request.session.items)
+    
+        with django_db_blocker.unblock():
+&gt;           db_cfg = setup_databases(
+                verbosity=request.config.option.verbose,
+                interactive=False,
+                aliases=aliases,
+                serialized_aliases=serialized_aliases,
+                **setup_databases_args,
+            )
+
+.venv\Lib\site-packages\pytest_django\fixtures.py:186: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\django\test\utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv\Lib\site-packages\django\db\backends\base\creation.py:64: in create_test_db
+    self.connection.close()
+.venv\Lib\site-packages\django\utils\asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\django\db\backends\sqlite3\base.py:223: in close
+    self.validate_thread_sharing()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;
+
+    def validate_thread_sharing(self):
+        """
+        Validate that the connection isn't accessed by another thread than the
+        one which originally created it, unless the connection was explicitly
+        authorized to be shared between threads (via the `inc_thread_sharing()`
+        method). Raise an exception if the validation fails.
+        """
+        if not (self.allow_thread_sharing or self._thread_ident == _thread.get_ident()):
+&gt;           raise DatabaseError(
+                "DatabaseWrapper objects created in a "
+                "thread can only be used in that same thread. The object "
+                "with alias '%s' was created in thread id %s and this is "
+                "thread id %s." % (self.alias, self._thread_ident, _thread.get_ident())
+            )
+E           django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.
+
+.venv\Lib\site-packages\django\db\backends\base\base.py:645: DatabaseError</error></testcase><testcase classname="test.test_escalabilidade.TestEscalabilidadeLiveServer" name="test_executar_carga_locust_no_live_server" time="0.001"><error message="failed on setup with &quot;django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.&quot;">request = &lt;SubRequest 'django_db_setup' for &lt;Function test1_criacao_motorista_via_api_e_persistencia_no_banco&gt;&gt;, django_test_environment = None
+django_db_blocker = &lt;pytest_django.plugin.DjangoDbBlocker object at 0x0000023F279034D0&gt;, django_db_use_migrations = True, django_db_keepdb = True, django_db_createdb = False
+django_db_modify_db_settings = None
+
+    @pytest.fixture(scope="session")
+    def django_db_setup(
+        request: pytest.FixtureRequest,
+        django_test_environment: None,  # noqa: ARG001
+        django_db_blocker: DjangoDbBlocker,
+        django_db_use_migrations: bool,
+        django_db_keepdb: bool,
+        django_db_createdb: bool,
+        django_db_modify_db_settings: None,  # noqa: ARG001
+    ) -&gt; Generator[None, None, None]:
+        """Top level fixture to ensure test databases are available"""
+        from django.test.utils import setup_databases, teardown_databases
+    
+        setup_databases_args = {}
+    
+        if not django_db_use_migrations:
+            _disable_migrations()
+    
+        if django_db_keepdb and not django_db_createdb:
+            setup_databases_args["keepdb"] = True
+    
+        aliases, serialized_aliases = _get_databases_for_setup(request.session.items)
+    
+        with django_db_blocker.unblock():
+&gt;           db_cfg = setup_databases(
+                verbosity=request.config.option.verbose,
+                interactive=False,
+                aliases=aliases,
+                serialized_aliases=serialized_aliases,
+                **setup_databases_args,
+            )
+
+.venv\Lib\site-packages\pytest_django\fixtures.py:186: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\django\test\utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv\Lib\site-packages\django\db\backends\base\creation.py:64: in create_test_db
+    self.connection.close()
+.venv\Lib\site-packages\django\utils\asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\django\db\backends\sqlite3\base.py:223: in close
+    self.validate_thread_sharing()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;
+
+    def validate_thread_sharing(self):
+        """
+        Validate that the connection isn't accessed by another thread than the
+        one which originally created it, unless the connection was explicitly
+        authorized to be shared between threads (via the `inc_thread_sharing()`
+        method). Raise an exception if the validation fails.
+        """
+        if not (self.allow_thread_sharing or self._thread_ident == _thread.get_ident()):
+&gt;           raise DatabaseError(
+                "DatabaseWrapper objects created in a "
+                "thread can only be used in that same thread. The object "
+                "with alias '%s' was created in thread id %s and this is "
+                "thread id %s." % (self.alias, self._thread_ident, _thread.get_ident())
+            )
+E           django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.
+
+.venv\Lib\site-packages\django\db\backends\base\base.py:645: DatabaseError</error></testcase><testcase classname="test.test_funcional" name="test1_pagina_inicial_e_links" time="0.001"><error message="failed on setup with &quot;django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.&quot;">request = &lt;SubRequest 'django_db_setup' for &lt;Function test1_criacao_motorista_via_api_e_persistencia_no_banco&gt;&gt;, django_test_environment = None
+django_db_blocker = &lt;pytest_django.plugin.DjangoDbBlocker object at 0x0000023F279034D0&gt;, django_db_use_migrations = True, django_db_keepdb = True, django_db_createdb = False
+django_db_modify_db_settings = None
+
+    @pytest.fixture(scope="session")
+    def django_db_setup(
+        request: pytest.FixtureRequest,
+        django_test_environment: None,  # noqa: ARG001
+        django_db_blocker: DjangoDbBlocker,
+        django_db_use_migrations: bool,
+        django_db_keepdb: bool,
+        django_db_createdb: bool,
+        django_db_modify_db_settings: None,  # noqa: ARG001
+    ) -&gt; Generator[None, None, None]:
+        """Top level fixture to ensure test databases are available"""
+        from django.test.utils import setup_databases, teardown_databases
+    
+        setup_databases_args = {}
+    
+        if not django_db_use_migrations:
+            _disable_migrations()
+    
+        if django_db_keepdb and not django_db_createdb:
+            setup_databases_args["keepdb"] = True
+    
+        aliases, serialized_aliases = _get_databases_for_setup(request.session.items)
+    
+        with django_db_blocker.unblock():
+&gt;           db_cfg = setup_databases(
+                verbosity=request.config.option.verbose,
+                interactive=False,
+                aliases=aliases,
+                serialized_aliases=serialized_aliases,
+                **setup_databases_args,
+            )
+
+.venv\Lib\site-packages\pytest_django\fixtures.py:186: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\django\test\utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv\Lib\site-packages\django\db\backends\base\creation.py:64: in create_test_db
+    self.connection.close()
+.venv\Lib\site-packages\django\utils\asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\django\db\backends\sqlite3\base.py:223: in close
+    self.validate_thread_sharing()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;
+
+    def validate_thread_sharing(self):
+        """
+        Validate that the connection isn't accessed by another thread than the
+        one which originally created it, unless the connection was explicitly
+        authorized to be shared between threads (via the `inc_thread_sharing()`
+        method). Raise an exception if the validation fails.
+        """
+        if not (self.allow_thread_sharing or self._thread_ident == _thread.get_ident()):
+&gt;           raise DatabaseError(
+                "DatabaseWrapper objects created in a "
+                "thread can only be used in that same thread. The object "
+                "with alias '%s' was created in thread id %s and this is "
+                "thread id %s." % (self.alias, self._thread_ident, _thread.get_ident())
+            )
+E           django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.
+
+.venv\Lib\site-packages\django\db\backends\base\base.py:645: DatabaseError</error></testcase><testcase classname="test.test_funcional" name="test2_cadastrarNovoMotorista" time="0.001"><error message="failed on setup with &quot;django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.&quot;">request = &lt;SubRequest 'django_db_setup' for &lt;Function test1_criacao_motorista_via_api_e_persistencia_no_banco&gt;&gt;, django_test_environment = None
+django_db_blocker = &lt;pytest_django.plugin.DjangoDbBlocker object at 0x0000023F279034D0&gt;, django_db_use_migrations = True, django_db_keepdb = True, django_db_createdb = False
+django_db_modify_db_settings = None
+
+    @pytest.fixture(scope="session")
+    def django_db_setup(
+        request: pytest.FixtureRequest,
+        django_test_environment: None,  # noqa: ARG001
+        django_db_blocker: DjangoDbBlocker,
+        django_db_use_migrations: bool,
+        django_db_keepdb: bool,
+        django_db_createdb: bool,
+        django_db_modify_db_settings: None,  # noqa: ARG001
+    ) -&gt; Generator[None, None, None]:
+        """Top level fixture to ensure test databases are available"""
+        from django.test.utils import setup_databases, teardown_databases
+    
+        setup_databases_args = {}
+    
+        if not django_db_use_migrations:
+            _disable_migrations()
+    
+        if django_db_keepdb and not django_db_createdb:
+            setup_databases_args["keepdb"] = True
+    
+        aliases, serialized_aliases = _get_databases_for_setup(request.session.items)
+    
+        with django_db_blocker.unblock():
+&gt;           db_cfg = setup_databases(
+                verbosity=request.config.option.verbose,
+                interactive=False,
+                aliases=aliases,
+                serialized_aliases=serialized_aliases,
+                **setup_databases_args,
+            )
+
+.venv\Lib\site-packages\pytest_django\fixtures.py:186: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\django\test\utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv\Lib\site-packages\django\db\backends\base\creation.py:64: in create_test_db
+    self.connection.close()
+.venv\Lib\site-packages\django\utils\asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\django\db\backends\sqlite3\base.py:223: in close
+    self.validate_thread_sharing()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;
+
+    def validate_thread_sharing(self):
+        """
+        Validate that the connection isn't accessed by another thread than the
+        one which originally created it, unless the connection was explicitly
+        authorized to be shared between threads (via the `inc_thread_sharing()`
+        method). Raise an exception if the validation fails.
+        """
+        if not (self.allow_thread_sharing or self._thread_ident == _thread.get_ident()):
+&gt;           raise DatabaseError(
+                "DatabaseWrapper objects created in a "
+                "thread can only be used in that same thread. The object "
+                "with alias '%s' was created in thread id %s and this is "
+                "thread id %s." % (self.alias, self._thread_ident, _thread.get_ident())
+            )
+E           django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.
+
+.venv\Lib\site-packages\django\db\backends\base\base.py:645: DatabaseError</error></testcase><testcase classname="test.test_funcional" name="test3_criar_e_editar_motorista" time="0.001"><error message="failed on setup with &quot;django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.&quot;">request = &lt;SubRequest 'django_db_setup' for &lt;Function test1_criacao_motorista_via_api_e_persistencia_no_banco&gt;&gt;, django_test_environment = None
+django_db_blocker = &lt;pytest_django.plugin.DjangoDbBlocker object at 0x0000023F279034D0&gt;, django_db_use_migrations = True, django_db_keepdb = True, django_db_createdb = False
+django_db_modify_db_settings = None
+
+    @pytest.fixture(scope="session")
+    def django_db_setup(
+        request: pytest.FixtureRequest,
+        django_test_environment: None,  # noqa: ARG001
+        django_db_blocker: DjangoDbBlocker,
+        django_db_use_migrations: bool,
+        django_db_keepdb: bool,
+        django_db_createdb: bool,
+        django_db_modify_db_settings: None,  # noqa: ARG001
+    ) -&gt; Generator[None, None, None]:
+        """Top level fixture to ensure test databases are available"""
+        from django.test.utils import setup_databases, teardown_databases
+    
+        setup_databases_args = {}
+    
+        if not django_db_use_migrations:
+            _disable_migrations()
+    
+        if django_db_keepdb and not django_db_createdb:
+            setup_databases_args["keepdb"] = True
+    
+        aliases, serialized_aliases = _get_databases_for_setup(request.session.items)
+    
+        with django_db_blocker.unblock():
+&gt;           db_cfg = setup_databases(
+                verbosity=request.config.option.verbose,
+                interactive=False,
+                aliases=aliases,
+                serialized_aliases=serialized_aliases,
+                **setup_databases_args,
+            )
+
+.venv\Lib\site-packages\pytest_django\fixtures.py:186: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\django\test\utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv\Lib\site-packages\django\db\backends\base\creation.py:64: in create_test_db
+    self.connection.close()
+.venv\Lib\site-packages\django\utils\asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\django\db\backends\sqlite3\base.py:223: in close
+    self.validate_thread_sharing()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;DatabaseWrapper vendor='sqlite' alias='default'&gt;
+
+    def validate_thread_sharing(self):
+        """
+        Validate that the connection isn't accessed by another thread than the
+        one which originally created it, unless the connection was explicitly
+        authorized to be shared between threads (via the `inc_thread_sharing()`
+        method). Raise an exception if the validation fails.
+        """
+        if not (self.allow_thread_sharing or self._thread_ident == _thread.get_ident()):
+&gt;           raise DatabaseError(
+                "DatabaseWrapper objects created in a "
+                "thread can only be used in that same thread. The object "
+                "with alias '%s' was created in thread id %s and this is "
+                "thread id %s." % (self.alias, self._thread_ident, _thread.get_ident())
+            )
+E           django.db.utils.DatabaseError: DatabaseWrapper objects created in a thread can only be used in that same thread. The object with alias 'default' was created in thread id 40924 and this is thread id 2470309248384.
+
+.venv\Lib\site-packages\django\db\backends\base\base.py:645: DatabaseError</error></testcase></testsuite></testsuites>

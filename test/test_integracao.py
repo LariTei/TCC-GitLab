@@ -3,6 +3,9 @@ import pytest
 from rest_framework.test import APIClient
 from rest_framework import status
 from src.models import Motorista, Automovel, Conserto
+import os
+
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 @pytest.mark.django_db
 class TestAPIIntegracaoOficina:
@@ -12,6 +15,7 @@ class TestAPIIntegracaoOficina:
         """Inicializa o cliente de testes da API do DRF"""
         self.client = APIClient()
 
+    @pytest.mark.django_db(transaction=True)
     def test1_criacao_motorista_via_api_e_persistencia_no_banco(self):
         """Testa se POST na API grava com sucesso o registro no banco de dados"""
         payload = {
@@ -32,6 +36,7 @@ class TestAPIIntegracaoOficina:
         motorista_db = Motorista.objects.get(cpf="123.456.789-00")
         assert motorista_db.nome == "Carlos Silva"
 
+    @pytest.mark.django_db(transaction=True)
     def test2_integracao_relacionamento_motorista_automovel_e_conserto(self):
         # 1. Criar Motorista no banco de dados
         motorista = Motorista.objects.create(
@@ -80,6 +85,7 @@ class TestAPIIntegracaoOficina:
         conserto_db = Conserto.objects.get(id=res_conserto.data['id'])
         assert conserto_db.automovel.motorista.nome == "Ana Souza"
 
+    @pytest.mark.django_db(transaction=True)
     def test3_atualizacao_e_exclusao_via_api(self):
         """Testa alteração (PUT) e deleção (DELETE) refletindo no banco de dados"""
         motorista = Motorista.objects.create(

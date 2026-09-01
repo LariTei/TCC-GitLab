@@ -19,7 +19,7 @@ def playwright_manager():
 
 @pytest.fixture(scope="session")
 def browser(playwright_manager):
-    browser = playwright_manager.chromium.launch(headless=True)
+    browser = playwright_manager.chromium.launch(headless=False)
     yield browser
     try:
         browser.close()
@@ -40,6 +40,7 @@ def page(browser):
     except Exception:
         pass
 # --- testes ---
+@pytest.mark.django_db(transaction=True)
 def test1_pagina_inicial_e_links(live_server, page):
     page.goto(live_server.url)
     page.wait_for_timeout(1000)
@@ -50,6 +51,7 @@ def test1_pagina_inicial_e_links(live_server, page):
     page.wait_for_url(f"{live_server.url}/motoristas/")
     assert "/motoristas/" in page.url
 
+@pytest.mark.django_db(transaction=True)
 def test2_cadastrarNovoMotorista(live_server, page):
     page.goto(f"{live_server.url}/motoristas/")
     btn_novo = page.get_by_text("+ Novo Motorista")
@@ -65,6 +67,7 @@ def test2_cadastrarNovoMotorista(live_server, page):
     page.wait_for_url(f"{live_server.url}/motoristas/", timeout=10_000)
     page.wait_for_timeout(1_000)
 
+@pytest.mark.django_db(transaction=True)
 def test3_criar_e_editar_motorista(live_server, page):
     unique_email = f"teste3_{int(time.time())}@example.com"
 

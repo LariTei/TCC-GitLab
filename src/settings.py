@@ -1,9 +1,28 @@
 import os
 from pathlib import Path
+import sys
 
 # Caminho base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# 1. Definição padrão do banco de dados (OBRIGATÓRIO vir antes)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# 2. Sobrescrita específica para o ambiente de testes (Pytest)
+if 'pytest' in sys.modules or 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'test_db.sqlite3',
+        'OPTIONS': {
+            'timeout': 30,
+            'check_same_thread': False,
+        },
+    }
 # CONFIGURAÇÕES DE SEGURANÇA (Para desenvolvimento local)
 SECRET_KEY = 'django-insecure-oficina-mecanica-chave-temporaria'
 DEBUG = True
@@ -84,3 +103,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Se estiver executando via pytest
+if 'pytest' in sys.modules:
+    DATABASES['default']['OPTIONS'] = {
+        'timeout': 20,
+        'check_same_thread': False,  # Permite que threads paralelas usem o mesmo SQLite
+    }

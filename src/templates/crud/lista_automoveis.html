@@ -1,0 +1,41 @@
+<!-- src/templates/crud/lista_automoveis.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Automóveis</title>
+</head>
+<body>
+<h1>Automóveis Cadastrados</h1>
+<a href="{% url 'criar_automovel' %}">Novo Automóvel</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Ano</th>
+        <th>Proprietário</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for automovel in automoveis %}
+    <tr>
+        <td>{{ automovel.marca }}</td>
+        <td>{{ automovel.modelo }}</td>
+        <td>{{ automovel.ano }}</td>
+        <td>{{ automovel.motorista.nome }}</td>
+        <td>
+            <a href="{% url 'editar_automovel' automovel.id %}" class="btn-warning">Editar</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">Nenhum automóvel cadastrado.</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

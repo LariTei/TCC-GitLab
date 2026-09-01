@@ -1,5 +1,6 @@
 # Framework Web Principal
 Django>=4.2,<6.0
+
 djangorestframework>=3.14.0
 
 # Ferramentas Auxiliares e Segurança de Variáveis
@@ -19,7 +20,8 @@ pytest-django>=4.5.0
 pytest-playwright>=0.4.0
 pytest-cov>=4.1.0
 playwright>=1.49.0
-djangorestframework
+locust>=2.15.0
+requests>=2.28.0
 
 # Banco de Dados e Utilitários
 psycopg2-binary>=2.9.6
