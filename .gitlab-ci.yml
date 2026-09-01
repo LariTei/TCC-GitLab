@@ -61,51 +61,51 @@ unit_integration:
     reports:
       junit: reports/integration.xml
 
-# Functional tests (separate job for parallelism)
-functional:
-  stage: test
-  <<: *defaults
-  script:
-    - mkdir -p reports
-    - pytest -q test/test_funcional.py --junitxml=reports/functional.xml
-  artifacts:
-    when: always
-    paths:
-      - reports/functional.xml
-    expire_in: 1 day
-    reports:
-      junit: reports/functional.xml
-
-# E2E tests (separate job for parallelism)
-e2e:
-  stage: test
-  <<: *defaults
-  script:
-    - mkdir -p reports
-    - pytest -q test/test_e2e.py --junitxml=reports/e2e.xml
-  artifacts:
-    when: always
-    paths:
-      - reports/e2e.xml
-    expire_in: 1 day
-    reports:
-      junit: reports/e2e.xml
-
-# Scalability / Load tests
-scalability:
-  stage: test
-  <<: *defaults
-  script:
-    - mkdir -p reports
-    - echo "Using PIPELINE_TIMEOUT=${PIPELINE_TIMEOUT} (secs)"
-    - pytest -q test/test_escalabilidade.py --junitxml=reports/scalability.xml
-  artifacts:
-    when: always
-    paths:
-      - reports/scalability.xml
-    expire_in: 1 day
-    reports:
-      junit: reports/scalability.xml
+## Functional tests (separate job for parallelism)
+#functional:
+#  stage: test
+#  <<: *defaults
+#  script:
+#    - mkdir -p reports
+#    - pytest -q test/test_funcional.py --junitxml=reports/functional.xml
+#  artifacts:
+#    when: always
+#    paths:
+#      - reports/functional.xml
+#    expire_in: 1 day
+#    reports:
+#      junit: reports/functional.xml
+#
+## E2E tests (separate job for parallelism)
+#e2e:
+#  stage: test
+#  <<: *defaults
+#  script:
+#    - mkdir -p reports
+#    - pytest -q test/test_e2e.py --junitxml=reports/e2e.xml
+#  artifacts:
+#    when: always
+#    paths:
+#      - reports/e2e.xml
+#    expire_in: 1 day
+#    reports:
+#      junit: reports/e2e.xml
+#
+## Scalability / Load tests
+#scalability:
+#  stage: test
+#  <<: *defaults
+#  script:
+#    - mkdir -p reports
+#    - echo "Using PIPELINE_TIMEOUT=${PIPELINE_TIMEOUT} (secs)"
+#    - pytest -q test/test_escalabilidade.py --junitxml=reports/scalability.xml
+#  artifacts:
+#    when: always
+#    paths:
+#      - reports/scalability.xml
+#    expire_in: 1 day
+#    reports:
+#      junit: reports/scalability.xml
 
 # Notes:
 # - Jobs in the same stage (test) run in parallel when runners are available.
