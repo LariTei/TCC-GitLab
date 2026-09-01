@@ -28,7 +28,7 @@ automacao_build:
     - touch build/info.txt
 
 # Shared before_script for test jobs (uses Playwright image to avoid browser install)
-defaults: &defaults
+.defaults: &defaults
   image: mcr.microsoft.com/playwright/python:latest
   variables:
     PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
