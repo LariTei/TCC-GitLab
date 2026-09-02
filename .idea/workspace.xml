@@ -7,11 +7,9 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Rodando pip de unit_integration">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Rodando pip para teste de funcionalidade e integração">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_e2e.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_e2e.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_escalabilidade.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_escalabilidade.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_funcional.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_funcional.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788307181213</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Rodando pip para teste de funcionalidade e integração">
+      <option name="closed" value="true" />
+      <created>1788307866095</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1788307866095</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -312,7 +318,8 @@
     <MESSAGE value="Atualização CI/CD Lucas" />
     <MESSAGE value="Tentando rodar o teste na pipeline" />
     <MESSAGE value="Rodando pip de unit_integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rodando pip de unit_integration" />
+    <MESSAGE value="Rodando pip para teste de funcionalidade e integração" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rodando pip para teste de funcionalidade e integração" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
