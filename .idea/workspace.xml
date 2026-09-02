@@ -7,10 +7,7 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="removendo escalabilidade">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Testando relatório" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -322,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788310950096</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Testando relatório">
+      <option name="closed" value="true" />
+      <created>1788391048868</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1788391048868</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -352,7 +357,8 @@
     <MESSAGE value="Rodando pip de unit_integration" />
     <MESSAGE value="Rodando pip para teste de funcionalidade e integração" />
     <MESSAGE value="removendo escalabilidade" />
-    <option name="LAST_COMMIT_MESSAGE" value="removendo escalabilidade" />
+    <MESSAGE value="Testando relatório" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testando relatório" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

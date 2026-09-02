@@ -16,6 +16,7 @@ crispy-bootstrap5>=2024.2
 
 # Ferramentas de Testes (Unitários, API e E2E/Playwright)
 pytest>=7.4.0
+pytest-html>=4.1.0
 pytest-django>=4.5.0
 pytest-playwright>=0.4.0
 pytest-cov>=4.1.0
