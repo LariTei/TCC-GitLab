@@ -8,8 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Rodando pip para teste de funcionalidade e integração">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_funcional.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_funcional.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_escalabilidade.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_escalabilidade.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +289,23 @@
       <option name="project" value="LOCAL" />
       <updated>1788307866095</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Rodando pip para teste de funcionalidade e integração">
+      <option name="closed" value="true" />
+      <created>1788309514936</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1788309514936</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Rodando pip para teste de funcionalidade e integração">
+      <option name="closed" value="true" />
+      <created>1788309730889</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1788309730889</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
