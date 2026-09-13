@@ -1,12 +1,14 @@
 import os
 import time
 import threading
+import unittest
 from django.test.testcases import LiveServerTestCase
 from playwright.sync_api import sync_playwright
 
 # Garante permissão para operações assíncronas se necessário
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
+@unittest.skip("Pulando esta classe de teste manual interativa na pipeline")
 class ManualLiveServerRunner(LiveServerTestCase):
     """
     Sobe o Live Server do Django e abre o navegador visível (headless=False)
