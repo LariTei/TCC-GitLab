@@ -1,4 +1,3 @@
-# test_mecanica_pytest.py
 import time
 import os
 import pytest
@@ -19,7 +18,7 @@ def playwright_manager():
 
 @pytest.fixture(scope="session")
 def browser(playwright_manager):
-    browser = playwright_manager.chromium.launch(headless=True)
+    browser = playwright_manager.chromium.launch(headless=False)
     yield browser
     try:
         browser.close()

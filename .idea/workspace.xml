@@ -7,7 +7,15 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Testando relatório" />
+    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Testando relatório">
+      <change afterPath="$PROJECT_DIR$/src/templates/crud/confirmar_delecao.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_Manual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/crud/lista_automoveis.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/crud/lista_automoveis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/crud/lista_consertos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/crud/lista_consertos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_funcional.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_funcional.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -74,8 +83,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python tests.Python tests for test.test_mecanica.TestOficinaInterface.executor": "Run",
+    "Python tests.Python tests for test_Manual.page.test2_cadastrarNovoMotorista.executor": "Run",
     "Python.models.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -84,7 +95,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/laris_tx5hiin/IdeaProjects/automacao_cicd/src/templates/crud",
+    "last_opened_file_path": "C:/Users/laris_tx5hiin/IdeaProjects/automacao_cicd/test",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
@@ -94,6 +105,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\laris_tx5hiin\IdeaProjects\automacao_cicd\test" />
       <recent name="C:\Users\laris_tx5hiin\IdeaProjects\automacao_cicd\src\templates\crud" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -105,7 +117,23 @@
       <recent name="com.laritei_group.automacao_cicd" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests for test_Manual.page.test2_cadastrarNovoMotorista">
+    <configuration name="Python tests for test_Manual.page.test2_cadastrarNovoMotorista" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="automacao_cicd" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Manual.page.test2_cadastrarNovoMotorista&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for test.test_funcional" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="automacao_cicd" />
       <option name="ENV_FILES" value="" />
@@ -124,6 +152,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_Manual.page.test2_cadastrarNovoMotorista" />
         <item itemvalue="Python tests.Python tests for test.test_funcional" />
       </list>
     </recent_temporary>
@@ -327,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788391048868</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Testando relatório">
+      <option name="closed" value="true" />
+      <created>1788391502156</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1788391502156</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
