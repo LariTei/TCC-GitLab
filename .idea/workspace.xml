@@ -7,15 +7,7 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Testando relatório">
-      <change afterPath="$PROJECT_DIR$/src/templates/crud/confirmar_delecao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_Manual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/crud/lista_automoveis.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/crud/lista_automoveis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/crud/lista_consertos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/crud/lista_consertos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_funcional.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_funcional.py" afterDir="false" />
-    </list>
+    <list default="true" id="2b2f3014-997e-4651-9d78-933d930c669b" name="Changes" comment="Testando classe manual" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -364,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788391502156</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Testando classe manual">
+      <option name="closed" value="true" />
+      <created>1789309801414</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1789309801414</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,7 +395,8 @@
     <MESSAGE value="Rodando pip para teste de funcionalidade e integração" />
     <MESSAGE value="removendo escalabilidade" />
     <MESSAGE value="Testando relatório" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testando relatório" />
+    <MESSAGE value="Testando classe manual" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testando classe manual" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

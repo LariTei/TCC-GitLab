@@ -42,12 +42,9 @@ teste:
     # Defina o PYTHONPATH aqui para ajudar o container a enxergar a raiz do projeto e a pasta src antes de invocar os testes
     PYTHONPATH: ".:src"
   before_script:
-    - apt-get update && apt-get install -y python3 python3-pip python3-venv
     - python3 -m venv .venv
     - source .venv/bin/activate
-    # Instale obrigatoriamente o pytest-django para ele respeitar o arquivo pytest.ini
     - pip install -r requirements.txt
-    # Garanta que os navegadores do Playwright estejam validados
     - playwright install chromium --with-deps
   script:
     - pytest
