@@ -23,7 +23,7 @@ class ManualLiveServerRunner(LiveServerTestCase):
         super().setUpClass()
         # Inicializa o Playwright em modo visível
         cls.playwright = sync_playwright().start()
-        cls.browser = cls.playwright.chromium.launch(headless=False, slow_mo=500)
+        cls.browser = cls.playwright.chromium.launch(headless=True, slow_mo=500)
         cls.context = cls.browser.new_context()
         cls.page = cls.context.new_page()
 
