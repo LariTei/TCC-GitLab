@@ -14,17 +14,6 @@ O que é Continuous Integration?
 O que é Continuous Delivery?
 *   Conjunto de praticas automatizadas que tem como objetivo garantir que o código está apto para ser enviado para o ambiente de produção.
 
-# Configurações Necessárias
-Realize o download das plataformas necessárias:
-*     - Cypress: Framework de automação de teste
-        https://www.cypress.io/cloud
-*     - Node.Js:
-        https://nodejs.org/pt-br
-*     - Cucumber: Framework para escrita de teste
-        Plugin
-*     - Visual Studio Code: Plataforma de desenvolvimento (IDE)
-          https://code.visualstudio.com/
-
 <details>
        <summary> Tipos de Testes </summary>
 
